@@ -1,0 +1,2 @@
+# ros2bag_to_kitti
+本程序用于将ros2的点云bag转化成kitti的bin
