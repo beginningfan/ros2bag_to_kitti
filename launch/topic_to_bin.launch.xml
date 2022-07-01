@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 使用命令行的内容来播放bag，并将输出话题设置为/input -->
+    <executable cmd='ros2 bag play /home/fanliangliang/ROS2/m1_persoin_car --remap /rslidar_points:=/input' output="screen" />
+    <!-- 启动转换节点，并指定生成的bin文件的路径，如果不想在上面remap的话，可以在这里修改该节点订阅的话题名 -->
+    <node pkg="ros2bag_to_kitti" exec="topic_to_bin" name="topic_to_bin" output="screen">
+        <param name="topic_name" value="/rslidar_points"/>
+        <param name="bin_filepath" value="/home/fanliangliang/workspace/github/ros2bag_to_kitti/src/ros2bag_to_kitti/bin/"/>
+    </node>
+</launch>
